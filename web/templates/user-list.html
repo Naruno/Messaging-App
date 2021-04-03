@@ -1,0 +1,26 @@
+
+
+
+    <div class="card-body contacts_body">
+        <ui class="contacts">
+
+        {% for user in users: %}
+        <a href="/messages/{{user["name"]}}">
+        <li>
+            <div class="d-flex bd-highlight">
+                <div class="img_cont">
+                    <img src="/static/image/cool-emoji.png" class="rounded-circle user_img">
+
+                </div>
+                <div class="user_info">
+                    <span>{{user["name"]}}</span>
+                </div>
+            </div>
+        </li>
+        </a>
+        {% endfor %}
+        </ui>
+    </div>
+    <div class="card-footer"></div>
+
+
