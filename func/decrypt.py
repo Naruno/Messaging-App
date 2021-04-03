@@ -27,7 +27,7 @@ def decrypt_text(text_data,pubkey):
     for keys in temp_keys:
       if "fromUser" in temp_keys[keys]:
         key_publickey = temp_keys[keys]["fromUser"].replace("\n","").replace(" ","")
-        if message_publickey == key_publickey or message_publickey in key_publickey or key_publickey in message_publickey:
+        if message_publickey == key_publickey:
             i = 0
             decrypted_Mess = ""
             while i < l -2:
