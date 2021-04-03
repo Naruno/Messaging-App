@@ -7,7 +7,7 @@ from apps.Messaging_App.func.miller_rabin import is_prime
 
 def get_prime(bit):
     while True:
-        num = random.getrandbits(bit)
+        num = random.randrange(2**(bit-1), 2**(bit))#random.getrandbits(bit)
         if is_prime(num):
            return num       
 

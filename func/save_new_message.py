@@ -12,7 +12,7 @@ def save_new_message(message,n,e):
     for temp_element in temp_keys:
         print("\n\n\n")
         print(temp_keys[temp_element]["n"] == n and temp_keys[temp_element]["e"] == e)
-        if temp_keys[temp_element]["n"] == n and temp_keys[temp_element]["e"] == e:
+        if temp_keys[temp_element]["n"] == n and temp_keys[temp_element]["e"] == e and "d" not in temp_keys[temp_element]:
             
             temp_message = the_message(temp_element)
             

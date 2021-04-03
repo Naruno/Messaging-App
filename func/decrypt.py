@@ -22,20 +22,17 @@ def decrypt_text(text_data,pubkey):
 
     message_publickey = pubkey.replace("\n","").replace(" ","")
 
+    d = temp_keys["1"]["d"]
 
     for keys in temp_keys:
       if "fromUser" in temp_keys[keys]:
         key_publickey = temp_keys[keys]["fromUser"].replace("\n","").replace(" ","")
         if message_publickey == key_publickey or message_publickey in key_publickey or key_publickey in message_publickey:
-            d = temp_keys["1"]["d"]
-            print("d: "+str(d))
             i = 0
             decrypted_Mess = ""
-            #with open("decryptText.txt") as newFile:
             while i < l -2:
                 x = decrypt(nums[i], int(d), int(n))
                 y = chr(x)
-                #print(chr(x).encode('utf-8'), file=decrypted_Mess)
                 decrypted_Mess += y
                 i+=1
             message = {"from":"user","message":decrypted_Mess}

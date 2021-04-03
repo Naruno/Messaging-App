@@ -12,11 +12,13 @@ class Test_User(unittest.TestCase):
 
         name = "onur"
 
+        pubkey = "onurspubkey"
+
         n = 111
         e = 111
 
 
-        temp_user = create_new_user(name,n,e)
+        temp_user = create_new_user(name,pubkey,n,e)
 
         temp_user_object = the_keys()[temp_user]
 
@@ -26,7 +28,7 @@ class Test_User(unittest.TestCase):
             ok = True
 
 
-        #key_delete(temp_user)
+        key_delete(temp_user)
 
 
 

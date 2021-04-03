@@ -6,7 +6,7 @@ import unittest
 class Test_rsa(unittest.TestCase):
 
     def test_creating_and_delete_rsa(self):
-        temp_rsa = create_new_rsa(64)
+        temp_rsa = create_new_rsa()
 
         self.assertEqual(temp_rsa in the_keys(),True,"A problem on the test_creating_rsa")
 
@@ -14,19 +14,6 @@ class Test_rsa(unittest.TestCase):
 
         self.assertEqual(temp_rsa not in the_keys(),True,"A problem on the test_creating_rsa")
 
-    def test_encrypt_decrypt(self):
-        temp_rsa = create_new_rsa(64)    
-
-        text = "hello world"
-
-        encrypted_text = encrypt_text(text,temp_rsa)  
-
-        ok = True if decrypt_text(encrypted_text) == text else False
-
-        key_delete(temp_rsa)
-
-
-        self.assertEqual(ok,True,"A problem on the test_encrypt_decrypt")
 
 
 
