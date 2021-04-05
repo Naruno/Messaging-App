@@ -1,26 +1,27 @@
 
-
-
-    <div class="card-body contacts_body">
-        <ui class="contacts">
-
-        {% for user in users: %}
-        <a href="/messages/{{user["name"]}}">
-        <li>
-            <div class="d-flex bd-highlight">
-                <div class="img_cont">
-                    <img src="/static/image/cool-emoji.png" class="rounded-circle user_img">
-
-                </div>
-                <div class="user_info">
-                    <span>{{user["name"]}}</span>
-                </div>
-            </div>
-        </li>
-        </a>
-        {% endfor %}
-        </ui>
+    <div class="search">
+        <form action = "/add-new-user" method = "post">
+                <input name="publickey" class="form-control" id="publickey" placeholder="Public Key for new user..." style="width: 86% !important;" required></input>
+            <button type="submit" class="add_new_user_button"><i class="fa fa-plus"></i></button>
+          </form>
     </div>
-    <div class="card-footer"></div>
+    <div class="contacts">
+        <ul>
+            {% for user in users: %}
+
+            <li>
+                <a href="/messages/{{user["name"]}}">
+                    <img src="/static/image/cool-emoji.png" alt="">
+                    <div class="inner">
+                        <div class="name">{{user["name"]}}</div>
+                        <div class="message">Merhaba, nasılsın ?</div>
+                    </div>
+                    <div class="notification"></div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 
 
