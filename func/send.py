@@ -17,7 +17,5 @@ def add_new_user_request(publickey):
     create_new_user("unknow",publickey,0,0)
 
 def send_new_message(message,publickey):
-    key = the_keys()["1"]
-
     data = {"app":"messagingapp", "command":"newmessage", "message":message}
     send(Wallet_Import(0,0), Wallet_Import(0,1), publickey, data = data, amount = 0)
