@@ -48,13 +48,14 @@ class Test_Message(unittest.TestCase):
 
 
 
-if __name__ == '__main__':
-    import os
-    import sys
-    sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
-    from apps.Messaging_App.func.create_new_rsa import create_new_rsa
-    from apps.Messaging_App.func.create_new_user import create_new_user
-    from apps.Messaging_App.lib.keys_system import the_keys, key_delete
-    from apps.Messaging_App.lib.messages_system import the_message, message_delete
-    from apps.Messaging_App.func.save_new_message import save_new_message
-    unittest.main()
+
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
+
+from apps.Messaging_App.func.create_new_rsa import create_new_rsa
+from apps.Messaging_App.func.create_new_user import create_new_user
+from apps.Messaging_App.lib.keys_system import the_keys, key_delete
+from apps.Messaging_App.lib.messages_system import the_message, message_delete
+from apps.Messaging_App.func.save_new_message import save_new_message
+unittest.main(exit=False)
