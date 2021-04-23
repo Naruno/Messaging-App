@@ -43,16 +43,10 @@ def messaging_app_main_tx(tx):
                 decrypt_text(tx.data["message"],tx_pubkey_fromUser)
 
 
-def messaging_app_main_cli(): 
-    return None
 
-import tkinter as tk
-import tkinter.ttk as ttk
 
-def messaging_app_main_gui(main_gui,column,row):
-    main_gui.example_button = ttk.Button(main_gui.frame)
-    main_gui.example_button.configure(text='Run Messaging App')
-    main_gui.example_button.grid(column=str(column), padx='25', pady='20', row=str(row), sticky='n')
-    import_arguments = f"from apps.Messaging_App.web.chat import start_app"
-    func_name = "start_app()"
-    main_gui.example_button.configure(command= lambda: main_gui.apps_func(import_arguments,func_name))
+def messaging_app_main_run():
+
+    from apps.Messaging_App.web.chat import start_messaging_app
+    start_messaging_app()
+

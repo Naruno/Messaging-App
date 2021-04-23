@@ -98,7 +98,7 @@ def send_message():
  
         return redirect(request.referrer)
 
-def start_app():
+def start_messaging_app():
     app.run()
 
 
