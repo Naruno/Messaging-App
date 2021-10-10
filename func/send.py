@@ -3,7 +3,7 @@ from app.Messaging_App.func.create_new_rsa import create_new_rsa
 import os
 import sys
 
-from func.send import send
+from transactions.send import send
 from wallet.wallet import Wallet_Import
 
 from app.Messaging_App.func.create_new_user import create_new_user
