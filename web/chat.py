@@ -98,7 +98,7 @@ def send_message():
  
         return redirect(request.referrer)
 
-def start_messaging_app():
-    app.run()
+def start_messaging_app(port=79):
+    app.run(port=port)
 
 

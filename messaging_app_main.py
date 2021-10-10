@@ -45,8 +45,8 @@ def messaging_app_main_tx(tx):
 
 
 
-def messaging_app_main_run():
+def messaging_app_main_run(port=79):
 
     from app.Messaging_App.web.chat import start_messaging_app
-    start_messaging_app()
+    start_messaging_app(port=port)
 
