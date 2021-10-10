@@ -1,4 +1,4 @@
-from func.gen_keys import gen_keys
+from app.Messaging_App.func.gen_keys import gen_keys
 from lib.keys_system import the_keys, save_keys
 from lib.users_system import save_user
 
