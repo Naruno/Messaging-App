@@ -1,6 +1,6 @@
-from apps.Messaging_App.lib.keys_system import the_keys, save_keys
+from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
-from apps.Messaging_App.func.save_new_message import save_new_message
+from app.Messaging_App.func.save_new_message import save_new_message
 
 
 def decrypt_text(text_data,pubkey):

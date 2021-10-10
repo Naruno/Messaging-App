@@ -1,7 +1,7 @@
 import math
 import random
 
-from apps.Messaging_App.func.miller_rabin import is_prime
+from app.Messaging_App.func.miller_rabin import is_prime
 
 
 

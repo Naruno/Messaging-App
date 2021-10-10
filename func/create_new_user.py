@@ -1,5 +1,5 @@
-from apps.Messaging_App.func.gen_keys import gen_keys
-from apps.Messaging_App.lib.keys_system import the_keys, save_keys
+from app.Messaging_App.func.gen_keys import gen_keys
+from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
 def create_new_user(name,fromUser,n,e):
 
