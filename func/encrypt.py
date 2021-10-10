@@ -1,5 +1,5 @@
 
-from apps.Messaging_App.lib.keys_system import the_keys, save_keys
+from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
 import os
 

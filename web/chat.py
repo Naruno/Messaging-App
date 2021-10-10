@@ -11,14 +11,14 @@ except:
 import os
 import sys
 
-from apps.Messaging_App.lib.keys_system import the_keys
-from apps.Messaging_App.lib.messages_system import  the_message
-from apps.Messaging_App.func.send import add_new_user_request, send_new_message
+from app.Messaging_App.lib.keys_system import the_keys
+from app.Messaging_App.lib.messages_system import  the_message
+from app.Messaging_App.func.send import add_new_user_request, send_new_message
 
-from apps.Messaging_App.func.encrypt import encrypt_text
+from app.Messaging_App.func.encrypt import encrypt_text
 
 
-from apps.Messaging_App.func.save_new_message import save_new_message
+from app.Messaging_App.func.save_new_message import save_new_message
 
 app = Flask(__name__)
 

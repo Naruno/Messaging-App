@@ -36,10 +36,10 @@ def messaging_app_main_tx(tx):
             print("""\n tx.data["app"] == "messagingapp" \n""")
             if tx.data["command"] == "addnewuser" and to_User:
                 print("""\n tx.data["command"] == "addnewuser" \n""")
-                from apps.Messaging_App.func.create_new_user import create_new_user
+                from app.Messaging_App.func.create_new_user import create_new_user
                 create_new_user("unknow", tx.fromUser, tx.data["n"],tx.data["e"])
             elif tx.data["command"] == "newmessage" and to_User:
-                from apps.Messaging_App.func.decrypt import decrypt_text
+                from app.Messaging_App.func.decrypt import decrypt_text
                 decrypt_text(tx.data["message"],tx_pubkey_fromUser)
 
 
@@ -47,6 +47,6 @@ def messaging_app_main_tx(tx):
 
 def messaging_app_main_run():
 
-    from apps.Messaging_App.web.chat import start_messaging_app
+    from app.Messaging_App.web.chat import start_messaging_app
     start_messaging_app()
 

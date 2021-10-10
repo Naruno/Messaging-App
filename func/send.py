@@ -1,12 +1,12 @@
-from apps.Messaging_App.lib.keys_system import the_keys
-from apps.Messaging_App.func.create_new_rsa import create_new_rsa
+from app.Messaging_App.lib.keys_system import the_keys
+from app.Messaging_App.func.create_new_rsa import create_new_rsa
 import os
 import sys
 
 from func.send import send
 from wallet.wallet import Wallet_Import
 
-from apps.Messaging_App.func.create_new_user import create_new_user
+from app.Messaging_App.func.create_new_user import create_new_user
 
 def add_new_user_request(publickey):
     key = the_keys()["1"]
