@@ -11,6 +11,8 @@ except:
 import os
 import sys
 
+from waitress import serve
+
 from app.Messaging_App.lib.keys_system import the_keys
 from app.Messaging_App.lib.messages_system import  the_message
 from app.Messaging_App.func.send import add_new_user_request, send_new_message
@@ -99,6 +101,6 @@ def send_message():
         return redirect(request.referrer)
 
 def start_messaging_app(port=79):
-    app.run(port=port)
+    serve(app, host="0.0.0.0", port=port)
 
 
