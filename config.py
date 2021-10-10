@@ -1,7 +1,7 @@
-KEY_PATH = 'apps/Messaging_App/db/keys.json'
+KEY_PATH = 'app/Messaging_App/db/keys.json'
 
 
-MESSAGES_PATH = 'apps/Messaging_App/db/messages/'
+MESSAGES_PATH = 'app/Messaging_App/db/messages/'
 
 
 KEY_BIT = 2048
