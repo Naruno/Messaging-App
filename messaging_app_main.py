@@ -16,6 +16,10 @@ def messaging_app_main_tx(tx):
     control = False
     to_User = False
     from_User = False
+    tx_data_app_control = False
+    tx_data_app_messagingapp_control = False
+    
+    
     if tx_pubkey == my_pubkey or tx_pubkey in my_pubkey or my_pubkey in tx_pubkey:
         control = True
         to_User = True
@@ -29,16 +33,19 @@ def messaging_app_main_tx(tx):
             )
      if tx.data != None:
       logger.debug(f"tx.data: {tx.data}")
-      logger.debug(f"app: {"app" in tx.data}")
-      logger.debug(f"messagingapp: {tx.data["app"] == "messagingapp"}")
       if "app" in tx.data:
+        tx_data_app_control = True
         if tx.data["app"] == "messagingapp":
+            tx_data_app_messagingapp_control = True
             if tx.data["command"] == "addnewuser" and to_User:
                 from app.Messaging_App.func.create_new_user import create_new_user
                 create_new_user("unknow", tx.fromUser, tx.data["n"],tx.data["e"])
             elif tx.data["command"] == "newmessage" and to_User:
                 from app.Messaging_App.func.decrypt import decrypt_text
                 decrypt_text(tx.data["message"],tx_pubkey_fromUser)
+                
+      logger.debug(f"app: {tx_data_app_control}")
+      logger.debug(f"messaging_app: {tx_data_app_messagingapp_control}")
 
 
 
