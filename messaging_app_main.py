@@ -1,5 +1,11 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from wallet.wallet import Wallet_Import
-
+import argparse
 from lib.log import get_logger
 
 logger = get_logger("Messaging_App")
@@ -44,8 +50,18 @@ def messaging_app_main_tx(tx):
 
 
 
-def messaging_app_main_run(port=79):
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="RSA based blockchain messaging app.")
+
+    parser.add_argument("-p",
+                        "--port",
+                        default=81,
+                        type=str,
+                        help="Give a port for api")
+
+    args = parser.parse_args()
 
     from app.Messaging_App.web.chat import start_messaging_app
-    start_messaging_app(port=port)
+    start_messaging_app(port=args.port)
 
