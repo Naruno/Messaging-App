@@ -5,7 +5,7 @@ import json
 import os
 from app.Messaging_App.func.create_new_rsa import create_new_rsa
 
-from app.Messaging_App.config import KEY_PATH, KEY_BIT
+from app.Messaging_App.messaging_app_config import KEY_PATH, KEY_BIT
 
 def save_keys(new_keys):
     print("saving: "+str(new_keys))
