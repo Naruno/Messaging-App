@@ -2,6 +2,7 @@ from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
 from app.Messaging_App.func.save_new_message import save_new_message
 
+from wallet.wallet import Address
 
 def decrypt_text(text_data,pubkey):
 
@@ -19,8 +20,13 @@ def decrypt_text(text_data,pubkey):
     temp_keys = the_keys()
 
     print(temp_keys)
+    
+    my_address = "".join([
+            l.strip() for l in pubkey.splitlines()
+            if l and not l.startswith("-----")
+        ])
 
-    message_publickey = pubkey.replace("\n","").replace(" ","")
+    message_publickey = Address(my_address)
 
     d = temp_keys["1"]["d"]
 
