@@ -1,21 +1,17 @@
 from wallet.wallet import Wallet_Import
 
+from lib.log import get_logger
+
+logger = get_logger("Messaging_App")
+
 def messaging_app_main_tx(tx):
+    logger.info(
+                f"A transaction sended to messaging app: {tx.__dict__}"
+            )
     tx_pubkey = tx.toUser
     tx_pubkey_fromUser = tx.fromUser
-    my_pubkey = "".join([
-            l.strip() for l in Wallet_Import(0,0).splitlines()
-            if l and not l.startswith("-----")
-        ])  
+    my_pubkey = Wallet_Import(-1, 3)
     
-    print("\n")
-    print("\n\n"+tx_pubkey)
-    print(my_pubkey+"\n\n")
-    print(tx_pubkey == my_pubkey or tx_pubkey in my_pubkey or my_pubkey in tx_pubkey)
-    print(tx.__dict__)
-    print(tx.data)
-    print(type(tx.data))
-    print("\n")
 
     control = False
     to_User = False
@@ -28,14 +24,16 @@ def messaging_app_main_tx(tx):
         from_User = True
 
     if control:
+     logger.debug(
+                f"control: {control} | to_User: {to_User} | from_User: {from_User}"
+            )
      if tx.data != None:
-      print("\n not none \n")
+      logger.debug(f"tx.data: {tx.data}")
+      logger.debug(f"app: {"app" in tx.data}")
+      logger.debug(f"messagingapp: {tx.data["app"] == "messagingapp"}")
       if "app" in tx.data:
-        print("\n app in data \n")
         if tx.data["app"] == "messagingapp":
-            print("""\n tx.data["app"] == "messagingapp" \n""")
             if tx.data["command"] == "addnewuser" and to_User:
-                print("""\n tx.data["command"] == "addnewuser" \n""")
                 from app.Messaging_App.func.create_new_user import create_new_user
                 create_new_user("unknow", tx.fromUser, tx.data["n"],tx.data["e"])
             elif tx.data["command"] == "newmessage" and to_User:
