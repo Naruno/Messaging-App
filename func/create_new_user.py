@@ -25,7 +25,11 @@ def create_new_user(name,fromUser,n,e):
         temp_keys[number] = {}
         
         temp_keys[number]["name"] = name
-        temp_keys[number]["fromUser"] = Address(fromUser)
+        my_address = "".join([
+            l.strip() for l in fromUser.splitlines()
+            if l and not l.startswith("-----")
+        ])
+        temp_keys[number]["fromUser"] = Address(my_address)
         temp_keys[number]["n"] = n
         temp_keys[number]["e"] = e
 
