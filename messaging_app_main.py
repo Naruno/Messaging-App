@@ -4,13 +4,13 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
-from wallet.wallet import Wallet_Import
-import argparse
-from lib.log import get_logger
 
-logger = get_logger("Messaging_App")
+import argparse
 
 def messaging_app_main_tx(tx):
+    from wallet.wallet import Wallet_Import
+    from lib.log import get_logger
+    logger = get_logger("Messaging_App")
     logger.info(
                 f"A transaction sended to messaging app: {tx.__dict__}"
             )
@@ -51,6 +51,9 @@ def messaging_app_main_tx(tx):
 
 
 if __name__ == "__main__":
+    import os
+    import sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), "..",".."))
     parser = argparse.ArgumentParser(
         description="RSA based blockchain messaging app.")
 
