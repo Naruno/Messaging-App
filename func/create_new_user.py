@@ -1,6 +1,8 @@
 from app.Messaging_App.func.gen_keys import gen_keys
 from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
+from wallet.wallet import Address
+
 def create_new_user(name,fromUser,n,e):
 
     temp_keys = the_keys()
@@ -23,7 +25,7 @@ def create_new_user(name,fromUser,n,e):
         temp_keys[number] = {}
         
         temp_keys[number]["name"] = name
-        temp_keys[number]["fromUser"] = fromUser
+        temp_keys[number]["fromUser"] = Address(fromUser)
         temp_keys[number]["n"] = n
         temp_keys[number]["e"] = e
 
