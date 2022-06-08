@@ -5,7 +5,7 @@ import json
 import os
 
 
-from app.Messaging_App.config import MESSAGES_PATH
+from app.Messaging_App.messaging_app_config import MESSAGES_PATH
 
 def save_message(new_messages,account):
     
