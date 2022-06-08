@@ -1,5 +1,5 @@
 from app.Messaging_App.func.gen_keys import gen_keys
-from app.Messaging_App.config import KEY_BIT
+from app.Messaging_App.messaging_app_config import KEY_BIT
 
 
 def create_new_rsa():
