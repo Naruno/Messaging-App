@@ -21,20 +21,14 @@ def decrypt_text(text_data,pubkey):
 
     print(temp_keys)
     
-    my_address = "".join([
-            l.strip() for l in pubkey.splitlines()
-            if l and not l.startswith("-----")
-        ])
-
-    message_publickey = Address(my_address)
 
     d = temp_keys["1"]["d"]
     
-    if not message_publickey == Wallet_Import(-1, 3):
+    if not pubkey == Wallet_Import(-1, 3):
         for keys in temp_keys:
           if "fromUser" in temp_keys[keys]:
             key_publickey = temp_keys[keys]["fromUser"].replace("\n","").replace(" ","")
-            if message_publickey == key_publickey:
+            if pubkey == key_publickey:
                 i = 0
                 decrypted_Mess = ""
                 while i < l -2:
