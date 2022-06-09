@@ -1,7 +1,7 @@
 from app.Messaging_App.func.gen_keys import gen_keys
 from app.Messaging_App.lib.keys_system import the_keys, save_keys
 
-from wallet.wallet import Address
+from wallet.wallet import Address, Wallet_Import
 
 def create_new_user(name,fromUser,n,e):
 
@@ -16,16 +16,16 @@ def create_new_user(name,fromUser,n,e):
     temp_keys = the_keys()
 
     in_list = False
-
-    for key in temp_keys:
-      if "fromUser" in temp_keys[key]:
-        if temp_keys[key]["fromUser"] == tx_from_address:
-            in_list = True
-            if temp_keys[key]["n"] == 0 and temp_keys[key]["e"] == 0:
-                temp_keys[key]["n"] = n
-                temp_keys[key]["e"] = e
-                save_keys(temp_keys)
-                return(key)
+    if not tx_from_address == Wallet_Import(-1, 3):
+        for key in temp_keys:
+          if "fromUser" in temp_keys[key]:
+            if temp_keys[key]["fromUser"] == tx_from_address:
+                in_list = True
+                if temp_keys[key]["n"] == 0 and temp_keys[key]["e"] == 0:
+                    temp_keys[key]["n"] = n
+                    temp_keys[key]["e"] = e
+                    save_keys(temp_keys)
+                    return(key)
 
     if not in_list:
         number = str(len(temp_keys) + 1)
