@@ -6,20 +6,13 @@ from wallet.wallet import Address, Wallet_Import
 def create_new_user(name,fromUser,n,e):
 
     
-    my_address = "".join([
-            l.strip() for l in fromUser.splitlines()
-            if l and not l.startswith("-----")
-        ])    
-    
-    tx_from_address = Address(my_address)
-    
     temp_keys = the_keys()
 
     in_list = False
-    if not tx_from_address == Wallet_Import(-1, 3):
+    if not fromUser == Wallet_Import(-1, 3):
         for key in temp_keys:
           if "fromUser" in temp_keys[key]:
-            if temp_keys[key]["fromUser"] == tx_from_address:
+            if temp_keys[key]["fromUser"] == fromUser:
                 in_list = True
                 if temp_keys[key]["n"] == 0 and temp_keys[key]["e"] == 0:
                     temp_keys[key]["n"] = n
@@ -34,7 +27,7 @@ def create_new_user(name,fromUser,n,e):
         
         temp_keys[number]["name"] = name
 
-        temp_keys[number]["fromUser"] = tx_from_address
+        temp_keys[number]["fromUser"] = fromUser
         temp_keys[number]["n"] = n
         temp_keys[number]["e"] = e
 
