@@ -8,7 +8,7 @@
 import argparse
 
 def messaging_app_main_tx(tx):
-    from wallet.wallet import Wallet_Import
+    from wallet.wallet import Wallet_Import, Address
     from lib.log import get_logger
     logger = get_logger("Messaging_App")
     logger.info(
@@ -37,12 +37,17 @@ def messaging_app_main_tx(tx):
         tx_data_app_control = True
         if tx.data["app"] == "messagingapp":
             tx_data_app_messagingapp_control = True
+            my_address = "".join([
+                l.strip() for l in tx.fromUser.splitlines()
+                if l and not l.startswith("-----")
+            ])
+            my_address = Address(my_address)            
             if tx.data["command"] == "addnewuser" and to_User:
                 from app.Messaging_App.func.create_new_user import create_new_user
-                create_new_user("unknow", tx.fromUser, tx.data["n"],tx.data["e"])
+                create_new_user("unknow", my_address, tx.data["n"],tx.data["e"])
             elif tx.data["command"] == "newmessage" and to_User:
                 from app.Messaging_App.func.decrypt import decrypt_text
-                decrypt_text(tx.data["message"],tx.fromUser)
+                decrypt_text(tx.data["message"],my_address)
                 
       logger.debug(f"app: {tx_data_app_control}")
       logger.debug(f"messaging_app: {tx_data_app_messagingapp_control}")
