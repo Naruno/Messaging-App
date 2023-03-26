@@ -41,7 +41,7 @@ class Test_User(unittest.TestCase):
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
-from app.Messaging_App.func.create_new_rsa import create_new_rsa
-from app.Messaging_App.func.create_new_user import create_new_user
-from app.Messaging_App.lib.keys_system import the_keys, key_delete
+from messaging_app.func.create_new_rsa import create_new_rsa
+from messaging_app.func.create_new_user import create_new_user
+from messaging_app.lib.keys_system import the_keys, key_delete
 unittest.main(exit=False)

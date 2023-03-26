@@ -1,12 +1,12 @@
-from app.Messaging_App.func.gen_keys import gen_keys
-from app.Messaging_App.messaging_app_config import KEY_BIT
+from messaging_app.func.gen_keys import gen_keys
+from messaging_app.messaging_app_config import KEY_BIT
 
 
 def create_new_rsa():
 
     p,q,n,e,d = gen_keys(KEY_BIT)
     
-    from app.Messaging_App.lib.keys_system import the_keys, save_keys
+    from messaging_app.lib.keys_system import the_keys, save_keys
     temp_keys = the_keys()
 
     number = str(len(temp_keys) + 1)

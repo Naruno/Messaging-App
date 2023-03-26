@@ -1,8 +1,8 @@
-from app.Messaging_App.lib.keys_system import the_keys, save_keys
+from messaging_app.lib.keys_system import the_keys, save_keys
 
-from app.Messaging_App.func.save_new_message import save_new_message
+from messaging_app.func.save_new_message import save_new_message
 
-from wallet.wallet import Address, Wallet_Import
+from wallet.wallet import Address, wallet_import
 
 def decrypt_text(text_data,pubkey):
 
@@ -24,7 +24,7 @@ def decrypt_text(text_data,pubkey):
 
     d = temp_keys["1"]["d"]
     
-    if not pubkey == Wallet_Import(-1, 3):
+    if not pubkey == wallet_import(-1, 3):
         for keys in temp_keys:
           if "fromUser" in temp_keys[keys]:
             key_publickey = temp_keys[keys]["fromUser"].replace("\n","").replace(" ","")

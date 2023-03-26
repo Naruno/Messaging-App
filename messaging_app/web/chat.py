@@ -13,17 +13,24 @@ import sys
 
 from waitress import serve
 
-from app.Messaging_App.lib.keys_system import the_keys
-from app.Messaging_App.lib.messages_system import  the_message
-from app.Messaging_App.func.send import add_new_user_request, send_new_message
+from messaging_app.lib.keys_system import the_keys
+from messaging_app.lib.messages_system import  the_message
+from messaging_app.func.send import add_new_user_request, send_new_message
 
-from app.Messaging_App.func.encrypt import encrypt_text
+from messaging_app.func.encrypt import encrypt_text
 
 
-from app.Messaging_App.func.save_new_message import save_new_message
+from messaging_app.func.save_new_message import save_new_message
+
+
+from naruno.apps.remote_app import Integration
+
+from messaging_app.func.get import get_thread
+
+import messaging_app
 
 app = Flask(__name__)
-
+from messaging_app.func.integration import the_integration
 
 @app.route('/')
 def main_page():
@@ -100,7 +107,11 @@ def send_message():
  
         return redirect(request.referrer)
 
-def start_messaging_app(port=79):
+def start_messaging_app(port=81, integration_port=8000, password="123"):
+    messaging_app.func.integration.the_integration = Integration("messaging_app", port=integration_port, password=password, sended=True)
+    from threading import Thread
+    t = Thread(target=get_thread)
+    t.start()
     serve(app, host="0.0.0.0", port=port)
 
 

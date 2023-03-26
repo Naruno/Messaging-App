@@ -1,6 +1,6 @@
-from app.Messaging_App.lib.keys_system import the_keys
+from messaging_app.lib.keys_system import the_keys
 
-from app.Messaging_App.lib.messages_system import the_message, save_message
+from messaging_app.lib.messages_system import the_message, save_message
 
 def save_new_message(message,n,e):
 
