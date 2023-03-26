@@ -39,12 +39,15 @@ def messaging_app_main_tx(tx):
       logger.debug(f"tx.data: {tx.data}")
       if "app" in tx.data:
        
-            if "addnewuser" in tx.data["action"] and to_User:
+            if "addnewusern" in tx.data["action"] and to_User:
                 from messaging_app.func.create_new_user import create_new_user
-                create_new_user("unknow", tx.fromUser, tx.data["app_data"]["n"],tx.data["app_data"]["e"])
+                create_new_user(tx.fromUser[:15], tx.fromUser, tx.data["app_data"], 0)
+            elif "addnewusere" in tx.data["action"] and to_User:
+                from messaging_app.func.create_new_user import create_new_user
+                create_new_user(tx.fromUser[:15], tx.fromUser, 0,tx.data["app_data"])                
             elif "newmessage" in tx.data["action"] and to_User:
                 from messaging_app.func.decrypt import decrypt_text
-                decrypt_text(tx.data["app_data"]["message"],tx.fromUser)
+                decrypt_text(tx.data["app_data"],tx.fromUser)
                 
 
 def get_thread():
