@@ -15,12 +15,12 @@ from naruno.transactions.transaction import Transaction
 import messaging_app
 import time
 
-def messaging_app_main_tx(tx):
+import json
+
+def messaging_app_main_tx(toUser, data, fromUser):
 
     logger = get_logger("Messaging_App")
-    logger.info(
-                f"A transaction sended to messaging app: {tx.__dict__}"
-            )
+
     my_pubkey = wallet_import(-1, 3)
     
 
@@ -28,26 +28,25 @@ def messaging_app_main_tx(tx):
     to_User = False
 
     
-    if tx.toUser == my_pubkey:
+    if toUser == my_pubkey:
         control = True
         to_User = True
     logger.debug(
                 f"control: {control} | to_User: {to_User}"
             )
     if control:
-     if tx.data != None:
-      logger.debug(f"tx.data: {tx.data}")
-      if "app" in tx.data:
-       
-            if "addnewusern" in tx.data["action"] and to_User:
+     if data != None:
+            logger.debug(f"data: {data}")
+   
+            if "addnewusern" in data["action"] and to_User:
                 from messaging_app.func.create_new_user import create_new_user
-                create_new_user(tx.fromUser[:15], tx.fromUser, tx.data["app_data"], 0)
-            elif "addnewusere" in tx.data["action"] and to_User:
+                create_new_user(fromUser[:15], fromUser, int(data["app_data"]), 0)
+            elif "addnewusere" in data["action"] and to_User:
                 from messaging_app.func.create_new_user import create_new_user
-                create_new_user(tx.fromUser[:15], tx.fromUser, 0,tx.data["app_data"])                
-            elif "newmessage" in tx.data["action"] and to_User:
+                create_new_user(fromUser[:15], fromUser, 0,int(data["app_data"]))                
+            elif "newmessage" in data["action"] and to_User:
                 from messaging_app.func.decrypt import decrypt_text
-                decrypt_text(tx.data["app_data"],tx.fromUser)
+                decrypt_text(data["app_data"],fromUser)
                 
 
 def get_thread():
@@ -55,7 +54,9 @@ def get_thread():
         new_datas = messaging_app.func.integration.the_integration.get()
         if new_datas != []:
             for data in new_datas:
-                messaging_app_main_tx(Transaction(data["sequence_number"], data["signature"], data["fromUser"], data["toUser"], data["data"], data["amount"], data["transaction_fee"], data["transaction_time"]))
+                print(data["data"])
+                print(type(data["data"]))
+                messaging_app_main_tx(data["toUser"], data["data"], data["fromUser"])
         time.sleep(5)
 
 

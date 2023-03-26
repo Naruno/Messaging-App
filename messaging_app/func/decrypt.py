@@ -2,7 +2,7 @@ from messaging_app.lib.keys_system import the_keys, save_keys
 
 from messaging_app.func.save_new_message import save_new_message
 
-from wallet.wallet import Address, wallet_import
+from naruno.wallet.wallet_import import Address, wallet_import
 
 def decrypt_text(text_data,pubkey):
 

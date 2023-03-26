@@ -14,11 +14,12 @@ def create_new_user(name,fromUser,n,e):
           if "fromUser" in temp_keys[key]:
             if temp_keys[key]["fromUser"] == fromUser:
                 in_list = True
-                if temp_keys[key]["n"] == 0 and temp_keys[key]["e"] == 0:
+                if temp_keys[key]["n"] == 0:
                     temp_keys[key]["n"] = n
-                    temp_keys[key]["e"] = e
-                    save_keys(temp_keys)
-                    return(key)
+                if temp_keys[key]["e"] == 0:
+                    temp_keys[key]["e"] = e                    
+                save_keys(temp_keys)
+                return(key)
 
     if not in_list:
         number = str(len(temp_keys) + 1)
