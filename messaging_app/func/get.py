@@ -54,8 +54,6 @@ def get_thread():
         new_datas = messaging_app.func.integration.the_integration.get()
         if new_datas != []:
             for data in new_datas:
-                print(data["data"])
-                print(type(data["data"]))
                 messaging_app_main_tx(data["toUser"], data["data"], data["fromUser"])
         time.sleep(5)
 
