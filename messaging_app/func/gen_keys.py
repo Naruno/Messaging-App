@@ -15,9 +15,9 @@ def get_prime(bit):
 
 def gen_keys(bit):
     p = get_prime(bit)
-    #print("p = ",p)
+
     q = get_prime(bit)
-    #print("q = ",q)
+
     n = p * q
     m = (p - 1) * (q - 1)
     e = get_e(m,bit)

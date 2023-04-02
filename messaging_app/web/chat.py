@@ -89,11 +89,11 @@ def send_message():
 
         encrypted = encrypt_text(text, user)
 
-        print("\n**** encrypted: "+ encrypted)
+
 
         pubkey = temp_keys["fromUser"]
 
-        print("\n**** pubkey: "+ pubkey)
+
 
 
         send_new_message(encrypted, pubkey)
