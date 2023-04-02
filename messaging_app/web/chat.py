@@ -1,12 +1,6 @@
-try:
-    from flask import Flask, render_template, request, redirect
-except:
-    import pip
-    package = 'flask'
-    if hasattr(pip, 'main'):
-        pip.main(['install', package])
-    else:
-        pip._internal.main(['install', package])
+
+from flask import Flask, render_template, request, redirect
+
 
 import os
 import sys

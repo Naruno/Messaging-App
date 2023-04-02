@@ -12,6 +12,9 @@ author_email='onur.atakan.ulusoy@naruno.org',
 license='MIT',
 packages=["messaging_app"],
 include_package_data=True,
+install_requires=[
+    "naruno_remote_app",
+],
 entry_points = {
     'console_scripts': ['messagingapp=messaging_app.messaging_app:main'],
 },
