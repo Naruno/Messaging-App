@@ -10,7 +10,6 @@ from messaging_app.func.integration import the_integration
 def add_new_user_request(publickey):
     key = the_keys()["1"]
 
-    print(key["n"])
 
     messaging_app.func.integration.the_integration.send("addnewusern", str(key["n"]), publickey)
     messaging_app.func.integration.the_integration.send("addnewusere", str(key["e"]), publickey)
