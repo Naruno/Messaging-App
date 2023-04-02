@@ -30,7 +30,7 @@ def decrypt_text(text_data,pubkey):
                     total += decrypted_Mess.decode("utf-8")
                 
                 message = {"from":"user","message":total}
-                #save_new_message(message,temp_keys[keys]["n"],temp_keys[keys]["e"])
+                save_new_message(message,temp_keys[keys]["n"],temp_keys[keys]["e"])
                 return total
 
 
