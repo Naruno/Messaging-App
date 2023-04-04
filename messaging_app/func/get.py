@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-
 from naruno.wallet.wallet_import import wallet_import, Address
 from naruno.lib.log import get_logger
 
