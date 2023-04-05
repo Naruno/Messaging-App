@@ -17,7 +17,7 @@ def encrypt_text(text_data,key):
     e = temp_keys["e"]                               #declare e
 
     parts = []
-    true_length = 477
+    true_length = 400
 
     for i in range(int(math.ceil(len(text_data) / true_length))):
         parts.append(text_data[i * int(true_length):i * int(true_length) + int(true_length)])
