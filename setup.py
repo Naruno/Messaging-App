@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='messaging_app',
-version='0.1.7',
+version='0.1.8',
 description="""Messaging App""",
 long_description_content_type="text/markdown",
 long_description="".join(open("README.md", encoding="utf-8").readlines()),
