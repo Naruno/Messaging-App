@@ -7,6 +7,8 @@
 
 from messaging_app.lib.keys_system import the_keys, save_keys
 
+import math
+
 import os
 
 def encrypt_text(text_data,key):
@@ -14,8 +16,12 @@ def encrypt_text(text_data,key):
     n = temp_keys["n"]                               #declare n
     e = temp_keys["e"]                               #declare e
 
+    parts = []
+    true_length = 477
 
-    text_data = [text_data[i:i+477] for i in range(0, len(text_data), 477)]
+    for i in range(int(math.ceil(len(text_data) / true_length))):
+        parts.append(text_data[i * int(true_length):i * int(true_length) + int(true_length)])
+    text_data = parts
 
     total = ""
     for i in text_data:
@@ -39,5 +45,3 @@ def encrypt_text(text_data,key):
 def encryption(m,e,n):
     x = pow(m,e,n)
     return x
-
- 
