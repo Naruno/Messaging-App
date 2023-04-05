@@ -14,8 +14,8 @@ def encrypt_text(text_data,key):
     n = temp_keys["n"]                               #declare n
     e = temp_keys["e"]                               #declare e
 
-    #split text to 512 char chunks
-    text_data = [text_data[i:i+512] for i in range(0, len(text_data), 512)]
+
+    text_data = [text_data[i:i+477] for i in range(0, len(text_data), 477)]
 
     total = ""
     for i in text_data:
